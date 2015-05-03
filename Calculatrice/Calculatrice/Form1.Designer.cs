@@ -33,14 +33,14 @@
             this.TB_b = new System.Windows.Forms.TextBox();
             this.TB_a = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TB_Moy = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TB_ET = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.BTN_Calculer = new System.Windows.Forms.Button();
+            this.TB_Rep = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +72,8 @@
             this.TB_b.Name = "TB_b";
             this.TB_b.Size = new System.Drawing.Size(100, 20);
             this.TB_b.TabIndex = 2;
+            this.TB_b.TextChanged += new System.EventHandler(this.Moy_ET_a_b_Text_Changed);
+            this.TB_b.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Moy_ET_a_b_KeyPress);
             // 
             // TB_a
             // 
@@ -79,6 +81,8 @@
             this.TB_a.Name = "TB_a";
             this.TB_a.Size = new System.Drawing.Size(100, 20);
             this.TB_a.TabIndex = 4;
+            this.TB_a.TextChanged += new System.EventHandler(this.Moy_ET_a_b_Text_Changed);
+            this.TB_a.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Moy_ET_a_b_KeyPress);
             // 
             // label2
             // 
@@ -89,12 +93,14 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "a :";
             // 
-            // textBox1
+            // TB_Moy
             // 
-            this.textBox1.Location = new System.Drawing.Point(99, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 6;
+            this.TB_Moy.Location = new System.Drawing.Point(99, 3);
+            this.TB_Moy.Name = "TB_Moy";
+            this.TB_Moy.Size = new System.Drawing.Size(100, 20);
+            this.TB_Moy.TabIndex = 6;
+            this.TB_Moy.TextChanged += new System.EventHandler(this.Moy_ET_a_b_Text_Changed);
+            this.TB_Moy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Moy_ET_a_b_KeyPress);
             // 
             // label1
             // 
@@ -105,12 +111,14 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "moyenne :";
             // 
-            // textBox2
+            // TB_EC
             // 
-            this.textBox2.Location = new System.Drawing.Point(99, 29);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 8;
+            this.TB_ET.Location = new System.Drawing.Point(99, 29);
+            this.TB_ET.Name = "TB_EC";
+            this.TB_ET.Size = new System.Drawing.Size(100, 20);
+            this.TB_ET.TabIndex = 8;
+            this.TB_ET.TextChanged += new System.EventHandler(this.Moy_ET_a_b_Text_Changed);
+            this.TB_ET.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Moy_ET_a_b_KeyPress);
             // 
             // label3
             // 
@@ -133,9 +141,9 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.TB_Moy);
             this.panel1.Controls.Add(this.LB_b);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.TB_ET);
             this.panel1.Controls.Add(this.TB_b);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -146,32 +154,32 @@
             this.panel1.Size = new System.Drawing.Size(221, 107);
             this.panel1.TabIndex = 10;
             // 
-            // button1
+            // BTN_Calculer
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(15, 153);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(221, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Calculer";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BTN_Calculer.Enabled = false;
+            this.BTN_Calculer.Location = new System.Drawing.Point(15, 153);
+            this.BTN_Calculer.Name = "BTN_Calculer";
+            this.BTN_Calculer.Size = new System.Drawing.Size(221, 23);
+            this.BTN_Calculer.TabIndex = 11;
+            this.BTN_Calculer.Text = "Calculer";
+            this.BTN_Calculer.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // TB_Rep
             // 
-            this.textBox3.Location = new System.Drawing.Point(15, 183);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(221, 20);
-            this.textBox3.TabIndex = 12;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TB_Rep.Location = new System.Drawing.Point(15, 183);
+            this.TB_Rep.Name = "TB_Rep";
+            this.TB_Rep.ReadOnly = true;
+            this.TB_Rep.Size = new System.Drawing.Size(221, 20);
+            this.TB_Rep.TabIndex = 12;
+            this.TB_Rep.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(251, 215);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.TB_Rep);
+            this.Controls.Add(this.BTN_Calculer);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.CB_Cas);
@@ -192,14 +200,14 @@
       private System.Windows.Forms.TextBox TB_b;
       private System.Windows.Forms.TextBox TB_a;
       private System.Windows.Forms.Label label2;
-      private System.Windows.Forms.TextBox textBox1;
+      private System.Windows.Forms.TextBox TB_Moy;
       private System.Windows.Forms.Label label1;
-      private System.Windows.Forms.TextBox textBox2;
+      private System.Windows.Forms.TextBox TB_ET;
       private System.Windows.Forms.Label label3;
       private System.Windows.Forms.Label label4;
       private System.Windows.Forms.Panel panel1;
-      private System.Windows.Forms.Button button1;
-      private System.Windows.Forms.TextBox textBox3;
+      private System.Windows.Forms.Button BTN_Calculer;
+      private System.Windows.Forms.TextBox TB_Rep;
    }
 }
 

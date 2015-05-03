@@ -36,6 +36,7 @@ namespace Calculatrice
                 LB_b.Visible = false;
                 TB_b.Visible = false;
             }
+            RefreshButton();
         }
         private double[,] ValeurNormale()
         {
@@ -83,6 +84,80 @@ namespace Calculatrice
             /*3,9*/{0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000},
             /*4,0*/{0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000}};
             return valeur;
+        }
+
+        private void Moy_ET_a_b_Text_Changed(object sender, EventArgs e)
+        {
+            RefreshButton();
+            if (TB_Moy.Text.StartsWith("."))
+            {
+                TB_Moy.Text = "0" + TB_Moy.Text;
+                TB_Moy.Select(2, 0);
+            }
+            if (TB_ET.Text.StartsWith("."))
+            {
+                TB_ET.Text = "0" + TB_ET.Text;
+                TB_ET.Select(2, 0);
+            }
+            if (TB_a.Text.StartsWith("."))
+            {
+                TB_a.Text = "0" + TB_a.Text;
+                TB_a.Select(2, 0);
+            }
+            if (TB_b.Text.StartsWith("."))
+            {
+                TB_b.Text = "0" + TB_b.Text;
+                TB_b.Select(2, 0);
+            }
+        }
+        private void RefreshButton()
+        {
+            if ((TB_b.Visible &&
+                TB_Moy.Text != string.Empty &&
+                TB_ET.Text  != string.Empty &&
+                TB_a.Text   != string.Empty &&
+                TB_b.Text   != string.Empty)||
+                (!TB_b.Visible &&
+                TB_Moy.Text != string.Empty &&
+                TB_ET.Text  != string.Empty &&
+                TB_a.Text   != string.Empty))
+            {
+                BTN_Calculer.Enabled = true;
+            }
+            else
+            {
+                BTN_Calculer.Enabled = false;
+            }
+        }
+
+        private void Moy_ET_a_b_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+            if (TB_Moy.Focused && ch == 46 && TB_Moy.Text.IndexOf(".") != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+            if (TB_ET.Focused && ch == 46 && TB_ET.Text.IndexOf(".") != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+            if (TB_a.Focused && ch == 46 && TB_a.Text.IndexOf(".") != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+            if (TB_b.Focused && ch == 46 && TB_b.Text.IndexOf(".") != -1)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (!Char.IsDigit(ch) && ch != 8 && ch !=46)
+            {
+                e.Handled = true;
+            }
         }
     }
 }
