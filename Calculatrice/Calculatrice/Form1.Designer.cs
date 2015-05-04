@@ -54,7 +54,7 @@
             this.CB_Cas.Location = new System.Drawing.Point(115, 12);
             this.CB_Cas.Name = "CB_Cas";
             this.CB_Cas.Size = new System.Drawing.Size(121, 21);
-            this.CB_Cas.TabIndex = 0;
+            this.CB_Cas.TabIndex = 7;
             this.CB_Cas.SelectedIndexChanged += new System.EventHandler(this.CB_Cas_SelectedIndexChanged);
             // 
             // LB_b
@@ -71,7 +71,7 @@
             this.TB_b.Location = new System.Drawing.Point(99, 81);
             this.TB_b.Name = "TB_b";
             this.TB_b.Size = new System.Drawing.Size(100, 20);
-            this.TB_b.TabIndex = 2;
+            this.TB_b.TabIndex = 4;
             this.TB_b.TextChanged += new System.EventHandler(this.Moy_ET_a_b_Text_Changed);
             this.TB_b.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Moy_ET_a_b_KeyPress);
             // 
@@ -80,7 +80,7 @@
             this.TB_a.Location = new System.Drawing.Point(99, 55);
             this.TB_a.Name = "TB_a";
             this.TB_a.Size = new System.Drawing.Size(100, 20);
-            this.TB_a.TabIndex = 4;
+            this.TB_a.TabIndex = 3;
             this.TB_a.TextChanged += new System.EventHandler(this.Moy_ET_a_b_Text_Changed);
             this.TB_a.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Moy_ET_a_b_KeyPress);
             // 
@@ -98,7 +98,7 @@
             this.TB_Moy.Location = new System.Drawing.Point(99, 3);
             this.TB_Moy.Name = "TB_Moy";
             this.TB_Moy.Size = new System.Drawing.Size(100, 20);
-            this.TB_Moy.TabIndex = 6;
+            this.TB_Moy.TabIndex = 1;
             this.TB_Moy.TextChanged += new System.EventHandler(this.Moy_ET_a_b_Text_Changed);
             this.TB_Moy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Moy_ET_a_b_KeyPress);
             // 
@@ -111,12 +111,12 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "moyenne :";
             // 
-            // TB_EC
+            // TB_ET
             // 
             this.TB_ET.Location = new System.Drawing.Point(99, 29);
-            this.TB_ET.Name = "TB_EC";
+            this.TB_ET.Name = "TB_ET";
             this.TB_ET.Size = new System.Drawing.Size(100, 20);
-            this.TB_ET.TabIndex = 8;
+            this.TB_ET.TabIndex = 2;
             this.TB_ET.TextChanged += new System.EventHandler(this.Moy_ET_a_b_Text_Changed);
             this.TB_ET.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Moy_ET_a_b_KeyPress);
             // 
@@ -160,9 +160,10 @@
             this.BTN_Calculer.Location = new System.Drawing.Point(15, 153);
             this.BTN_Calculer.Name = "BTN_Calculer";
             this.BTN_Calculer.Size = new System.Drawing.Size(221, 23);
-            this.BTN_Calculer.TabIndex = 11;
+            this.BTN_Calculer.TabIndex = 5;
             this.BTN_Calculer.Text = "Calculer";
             this.BTN_Calculer.UseVisualStyleBackColor = true;
+            this.BTN_Calculer.Click += new System.EventHandler(this.BTN_Calculer_Click);
             // 
             // TB_Rep
             // 
@@ -170,7 +171,7 @@
             this.TB_Rep.Name = "TB_Rep";
             this.TB_Rep.ReadOnly = true;
             this.TB_Rep.Size = new System.Drawing.Size(221, 20);
-            this.TB_Rep.TabIndex = 12;
+            this.TB_Rep.TabIndex = 6;
             this.TB_Rep.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
@@ -183,6 +184,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.CB_Cas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
