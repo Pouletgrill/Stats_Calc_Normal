@@ -21,9 +21,11 @@ namespace Calculatrice
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //on remplit le tableau des valeurs normales
             TableauNormale = ValeurNormale();
         }
 
+        //Gestion des événements
         private void CB_Cas_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CB_Cas.SelectedIndex == 0)
@@ -39,6 +41,8 @@ namespace Calculatrice
             RefreshButton();
             TB_Rep.Text = string.Empty;
         }
+
+        //retourne le tableau de la loi normale
         private double[,] ValeurNormale()
         {
             double[,] valeur ={
@@ -113,16 +117,19 @@ namespace Calculatrice
         }
         private void RefreshButton()
         {
+            //si les chiffres sont valide ou pas vide
             if ((TB_b.Visible &&
                 TB_Moy.Text != string.Empty &&
                 TB_ET.Text != string.Empty &&
                 TB_ET.Text != "0" &&
+                TB_ET.Text != "0." &&
                 TB_a.Text != string.Empty &&
                 TB_b.Text != string.Empty) ||
                 (!TB_b.Visible &&
                 TB_Moy.Text != string.Empty &&
                 TB_ET.Text != string.Empty &&
                 TB_ET.Text != "0" &&
+                TB_ET.Text != "0." &&
                 TB_a.Text != string.Empty))
             {
                 BTN_Calculer.Enabled = true;
@@ -133,6 +140,7 @@ namespace Calculatrice
             }
         }
 
+        //Masque des entré usager (chifre seulement)
         private void Moy_ET_a_b_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
@@ -170,17 +178,22 @@ namespace Calculatrice
 
         private string Calculer()
         {
+            //assignation des valeurs
             double Rep = 0;
             double EcartType = double.Parse(TB_ET.Text, System.Globalization.CultureInfo.InvariantCulture);
             double Moyenne = double.Parse(TB_Moy.Text, System.Globalization.CultureInfo.InvariantCulture);
             double a = double.Parse(TB_a.Text, System.Globalization.CultureInfo.InvariantCulture);
             double b = 0;
+
+            //si on doit calculer le z
             if (TB_b.Text != string.Empty)
                 b = double.Parse(TB_b.Text, System.Globalization.CultureInfo.InvariantCulture);
+            //calculer cote Z du a
             double Za = (a - Moyenne) / EcartType;
             double Zb = 0;
 
-            if (CB_Cas.SelectedIndex == 0)//P(a<x<b)
+
+            if (CB_Cas.SelectedIndex == 0)//si P(a<x<b)
             {
                 Zb = (b - Moyenne) / EcartType;
                 if ((Zb<0 && Za>0)||(Zb>0 && Za<0))
@@ -199,9 +212,9 @@ namespace Calculatrice
                     }
                 }
             }
-            else if (CB_Cas.SelectedIndex == 1)//P(X<a)
+            else if (CB_Cas.SelectedIndex == 1)//si P(X<a)
             {
-                if (Za>0)
+                if (Za > 0)
                 {
                     Rep = GetProportion(Za) + 0.5;
                 }
@@ -210,7 +223,7 @@ namespace Calculatrice
                     Rep = 0.5 - GetProportion(Za);
                 }
             }
-            else if (CB_Cas.SelectedIndex == 2)//P(X>a)
+            else if (CB_Cas.SelectedIndex == 2)//si P(X>a)
             {
                 if (Za < 0)
                 {
@@ -224,6 +237,7 @@ namespace Calculatrice
             return (Rep*100).ToString();
         }
 
+        //recois la cote z et retourne la valeur du tableau
         private double GetProportion(double nombre)
         {
             double i = nombre;
