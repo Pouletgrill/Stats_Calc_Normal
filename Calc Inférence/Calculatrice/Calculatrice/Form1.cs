@@ -49,25 +49,49 @@ namespace Calculatrice
 
         private string CalculerAireSousCourbe()
         {
+            int NB_PointSousCourbe = 0;
+            Random rnd = new Random();
             if (CB_Cas.SelectedIndex == 0)//si Fonction 1
             {
-
+                for (int i=0; i<10000;i++)
+                {
+                    double rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value)*100,
+                        Convert.ToInt32(NUD_b.Value)*100+1))/100;
+                    double rnd_Y = rnd.Next(0*100,5*100+1);
+                    double test = Fct1GetY(rnd_X);
+                    if (rnd_Y <= test)
+                    {
+                        NB_PointSousCourbe++;
+                    }
+                }
             }
             else if (CB_Cas.SelectedIndex == 1)//si Fonction 2
             {
+                for (int i = 0; i < 10000; i++)
+                {
 
+                }
             }
             else if (CB_Cas.SelectedIndex == 2)//si Fonction 3
             {
+                for (int i = 0; i < 10000; i++)
+                {
 
+                }
             }
             else if (CB_Cas.SelectedIndex == 3)//si Fonction 4
             {
+                for (int i = 0; i < 10000; i++)
+                {
 
+                }
             }
             else if (CB_Cas.SelectedIndex == 4)//si Fonction 5
             {
+                for (int i = 0; i < 10000; i++)
+                {
 
+                }
             }
             return "";//a faire
         }
