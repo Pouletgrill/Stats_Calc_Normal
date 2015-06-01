@@ -56,8 +56,10 @@ namespace Calculatrice
                 for (int i=0; i<10000;i++)
                 {
                     double rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value)*100,
-                        Convert.ToInt32(NUD_b.Value)*100+1))/100;
-                    double rnd_Y = rnd.Next(0*100,5*100+1);
+                        Convert.ToInt32(NUD_b.Value)*100+1))/100f;
+                    double rnd_Y = rnd.Next(0*100,5*100+1)/100f;
+                    rnd_X = 5.0;
+                    rnd_Y = 5.0;
                     double test = Fct1GetY(rnd_X);
                     if (rnd_Y <= test)
                     {

@@ -66,7 +66,6 @@
             // 
             // BTN_Calculer
             // 
-            this.BTN_Calculer.Enabled = false;
             this.BTN_Calculer.Location = new System.Drawing.Point(15, 153);
             this.BTN_Calculer.Name = "BTN_Calculer";
             this.BTN_Calculer.Size = new System.Drawing.Size(221, 23);
@@ -117,6 +116,11 @@
             this.NUD_b.Name = "NUD_b";
             this.NUD_b.Size = new System.Drawing.Size(39, 20);
             this.NUD_b.TabIndex = 13;
+            this.NUD_b.Value = new decimal(new int[] {
+            11,
+            0,
+            0,
+            0});
             this.NUD_b.ValueChanged += new System.EventHandler(this.NUD_a_b_ValueChanged);
             // 
             // label2
