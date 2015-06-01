@@ -31,11 +31,13 @@
             this.CB_Cas = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.BTN_Calculer = new System.Windows.Forms.Button();
-            this.TB_Rep = new System.Windows.Forms.TextBox();
+            this.TB_RepAireSousCourbe = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.NUD_a = new System.Windows.Forms.NumericUpDown();
             this.NUD_b = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
+            this.TB_RepIntervalConfiance = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_a)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_b)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +68,7 @@
             // 
             // BTN_Calculer
             // 
-            this.BTN_Calculer.Location = new System.Drawing.Point(15, 153);
+            this.BTN_Calculer.Location = new System.Drawing.Point(12, 91);
             this.BTN_Calculer.Name = "BTN_Calculer";
             this.BTN_Calculer.Size = new System.Drawing.Size(221, 23);
             this.BTN_Calculer.TabIndex = 5;
@@ -74,14 +76,14 @@
             this.BTN_Calculer.UseVisualStyleBackColor = true;
             this.BTN_Calculer.Click += new System.EventHandler(this.BTN_Calculer_Click);
             // 
-            // TB_Rep
+            // TB_RepAireSousCourbe
             // 
-            this.TB_Rep.Location = new System.Drawing.Point(15, 183);
-            this.TB_Rep.Name = "TB_Rep";
-            this.TB_Rep.ReadOnly = true;
-            this.TB_Rep.Size = new System.Drawing.Size(221, 20);
-            this.TB_Rep.TabIndex = 6;
-            this.TB_Rep.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TB_RepAireSousCourbe.Location = new System.Drawing.Point(122, 120);
+            this.TB_RepAireSousCourbe.Name = "TB_RepAireSousCourbe";
+            this.TB_RepAireSousCourbe.ReadOnly = true;
+            this.TB_RepAireSousCourbe.Size = new System.Drawing.Size(111, 20);
+            this.TB_RepAireSousCourbe.TabIndex = 6;
+            this.TB_RepAireSousCourbe.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -94,6 +96,12 @@
             // 
             // NUD_a
             // 
+            this.NUD_a.DecimalPlaces = 2;
+            this.NUD_a.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.NUD_a.Location = new System.Drawing.Point(72, 39);
             this.NUD_a.Maximum = new decimal(new int[] {
             11,
@@ -101,12 +109,18 @@
             0,
             0});
             this.NUD_a.Name = "NUD_a";
-            this.NUD_a.Size = new System.Drawing.Size(39, 20);
+            this.NUD_a.Size = new System.Drawing.Size(49, 20);
             this.NUD_a.TabIndex = 11;
             this.NUD_a.ValueChanged += new System.EventHandler(this.NUD_a_b_ValueChanged);
             // 
             // NUD_b
             // 
+            this.NUD_b.DecimalPlaces = 2;
+            this.NUD_b.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.NUD_b.Location = new System.Drawing.Point(72, 65);
             this.NUD_b.Maximum = new decimal(new int[] {
             11,
@@ -114,7 +128,7 @@
             0,
             0});
             this.NUD_b.Name = "NUD_b";
-            this.NUD_b.Size = new System.Drawing.Size(39, 20);
+            this.NUD_b.Size = new System.Drawing.Size(49, 20);
             this.NUD_b.TabIndex = 13;
             this.NUD_b.Value = new decimal(new int[] {
             11,
@@ -132,16 +146,36 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "b :";
             // 
+            // TB_RepIntervalConfiance
+            // 
+            this.TB_RepIntervalConfiance.Location = new System.Drawing.Point(122, 146);
+            this.TB_RepIntervalConfiance.Name = "TB_RepIntervalConfiance";
+            this.TB_RepIntervalConfiance.ReadOnly = true;
+            this.TB_RepIntervalConfiance.Size = new System.Drawing.Size(111, 20);
+            this.TB_RepIntervalConfiance.TabIndex = 14;
+            this.TB_RepIntervalConfiance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 123);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(107, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Estimateur Ponctuel :";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(251, 215);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.TB_RepIntervalConfiance);
             this.Controls.Add(this.NUD_b);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NUD_a);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.TB_Rep);
+            this.Controls.Add(this.TB_RepAireSousCourbe);
             this.Controls.Add(this.BTN_Calculer);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.CB_Cas);
@@ -162,11 +196,13 @@
       private System.Windows.Forms.ComboBox CB_Cas;
       private System.Windows.Forms.Label label4;
       private System.Windows.Forms.Button BTN_Calculer;
-      private System.Windows.Forms.TextBox TB_Rep;
+      private System.Windows.Forms.TextBox TB_RepAireSousCourbe;
       private System.Windows.Forms.Label label1;
       private System.Windows.Forms.NumericUpDown NUD_a;
       private System.Windows.Forms.NumericUpDown NUD_b;
       private System.Windows.Forms.Label label2;
+      private System.Windows.Forms.TextBox TB_RepIntervalConfiance;
+      private System.Windows.Forms.Label label3;
    }
 }
 

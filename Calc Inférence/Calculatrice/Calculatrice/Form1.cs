@@ -12,7 +12,7 @@ namespace Calculatrice
 {
     public partial class Form1 : Form
     {
-        double[,] TableauNormale;
+        double pie = 0;
         public Form1()
         {
             InitializeComponent();
@@ -44,10 +44,10 @@ namespace Calculatrice
 
         private void BTN_Calculer_Click(object sender, EventArgs e)
         {
-            TB_Rep.Text = CalculerAireSousCourbe();
+            CalculerAireSousCourbe();
         }
 
-        private string CalculerAireSousCourbe()
+        private void CalculerAireSousCourbe()
         {
             int NB_PointSousCourbe = 0;
             Random rnd = new Random();
@@ -60,8 +60,8 @@ namespace Calculatrice
                 for (int i=0; i<10000;i++)
                 {
                     //Randomisation du nombre avec 2 chiffre apres la virgule
-                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value)*100,
-                        Convert.ToInt32(NUD_b.Value)*100+1))/100f;
+                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value*100),
+                        Convert.ToInt32(NUD_b.Value*100)+1))/100f;
                     rnd_Y = rnd.Next(0*100,Ymax*100+1)/100f;
                     ////////////////////////////////////////////////////////
                     if (rnd_Y <= Fct1GetY(rnd_X))
@@ -76,8 +76,8 @@ namespace Calculatrice
                 for (int i = 0; i < 10000; i++)
                 {
                     //Randomisation du nombre avec 2 chiffre apres la virgule
-                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value) * 100,
-                        Convert.ToInt32(NUD_b.Value) * 100 + 1)) / 100f;
+                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value * 100),
+                        Convert.ToInt32(NUD_b.Value * 100) + 1)) / 100f;
                     rnd_Y = rnd.Next(0 * 100, Ymax * 100 + 1) / 100f;
                     ////////////////////////////////////////////////////////
                     if (rnd_Y <= Fct2GetY(rnd_X))
@@ -92,8 +92,8 @@ namespace Calculatrice
                 for (int i = 0; i < 10000; i++)
                 {
                     //Randomisation du nombre avec 2 chiffre apres la virgule
-                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value) * 100,
-                        Convert.ToInt32(NUD_b.Value) * 100 + 1)) / 100f;
+                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value * 100),
+                        Convert.ToInt32(NUD_b.Value * 100) + 1)) / 100f;
                     rnd_Y = rnd.Next(0 * 100, Ymax * 100 + 1) / 100f;
                     ////////////////////////////////////////////////////////
                     if (rnd_Y <= Fct3GetY(rnd_X))
@@ -108,8 +108,8 @@ namespace Calculatrice
                 for (int i = 0; i < 10000; i++)
                 {
                     //Randomisation du nombre avec 2 chiffre apres la virgule
-                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value) * 100,
-                        Convert.ToInt32(NUD_b.Value) * 100 + 1)) / 100f;
+                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value * 100),
+                        Convert.ToInt32(NUD_b.Value * 100) + 1)) / 100f;
                     rnd_Y = rnd.Next(0 * 100, Ymax * 100 + 1) / 100f;
                     ////////////////////////////////////////////////////////
                     if (rnd_Y <= Fct4GetY(rnd_X))
@@ -124,8 +124,8 @@ namespace Calculatrice
                 for (int i = 0; i < 10000; i++)
                 {
                     //Randomisation du nombre avec 2 chiffre apres la virgule
-                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value) * 100,
-                        Convert.ToInt32(NUD_b.Value) * 100 + 1)) / 100f;
+                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value * 100),
+                        Convert.ToInt32(NUD_b.Value * 100) + 1)) / 100f;
                     rnd_Y = rnd.Next(0 * 100, Ymax * 100 + 1) / 100f;
                     ////////////////////////////////////////////////////////
                     if (rnd_Y <= Fct5GetY(rnd_X))
@@ -135,8 +135,11 @@ namespace Calculatrice
                 }
             }
             int B = Ymax * Convert.ToInt32(NUD_b.Value - NUD_a.Value);
-            double A = B * NB_PointSousCourbe / 10000f;
-            return Math.Round(A,4).ToString();//a faire
+            double A = Math.Round(B * NB_PointSousCourbe / 10000f,4);
+            pie = A / B;
+            TB_RepAireSousCourbe.Text = A.ToString();
+            double ME = Math.Round(1.96 * CubicRoot((pie * (1f - pie)) / 10000), 2);
+            TB_RepIntervalConfiance.Text = "[" + ((pie * 100) - ME).ToString() + "% ," + ((pie * 100) + ME).ToString() + "% ]";
         }
 
         private void NUD_a_b_ValueChanged(object sender, EventArgs e)
