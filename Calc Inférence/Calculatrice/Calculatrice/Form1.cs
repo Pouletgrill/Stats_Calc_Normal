@@ -137,9 +137,15 @@ namespace Calculatrice
             int B = Ymax * Convert.ToInt32(NUD_b.Value - NUD_a.Value);
             double A = Math.Round(B * NB_PointSousCourbe / 10000f,4);
             pie = A / B;
+            double ME = Math.Round(1.96 * SquareRoot((pie * (1f - pie)) / 10000), 4);
+            double MEu = (A * ME*100) / ((A / B) * 100);
+            TB_RepEstimateurPonc.Text = ((A/B)*100).ToString()+"%";
+            TB_RepME.Text = "± "+(ME*100).ToString()+"%";
+            TB_RepIntervalConfiance.Text = "[" + ((pie - ME) * 100).ToString() + "% ;" + ((pie + ME) * 100).ToString() + "%]";
+            //////////////////////////////
             TB_RepAireSousCourbe.Text = A.ToString();
-            double ME = Math.Round(1.96 * CubicRoot((pie * (1f - pie)) / 10000), 2);
-            TB_RepIntervalConfiance.Text = "[" + ((pie * 100) - ME).ToString() + "% ," + ((pie * 100) + ME).ToString() + "% ]";
+            TB_RepME_ASC.Text = "± " + (MEu).ToString();
+            TB_RepIntervalle_ASC.Text = "[" + (A - MEu).ToString() + " ;" + (A + MEu).ToString()+"]";
         }
 
         private void NUD_a_b_ValueChanged(object sender, EventArgs e)
@@ -187,6 +193,17 @@ namespace Calculatrice
             {
                 return Math.Pow(x, 1f / 3f);
             }            
+        }
+        private double SquareRoot(double x)
+        {
+            if (x < 0)
+            {
+                return 0 - (Math.Pow((-1 * x), 1f / 2f));
+            }
+            else
+            {
+                return Math.Pow(x, 1f / 2f);
+            }
         }
     }
 }
