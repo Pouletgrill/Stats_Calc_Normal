@@ -51,17 +51,20 @@ namespace Calculatrice
         {
             int NB_PointSousCourbe = 0;
             Random rnd = new Random();
+            int Ymax=0;
+            double rnd_X;
+            double rnd_Y;
             if (CB_Cas.SelectedIndex == 0)//si Fonction 1
             {
+                Ymax = 5;
                 for (int i=0; i<10000;i++)
                 {
-                    double rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value)*100,
+                    //Randomisation du nombre avec 2 chiffre apres la virgule
+                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value)*100,
                         Convert.ToInt32(NUD_b.Value)*100+1))/100f;
-                    double rnd_Y = rnd.Next(0*100,5*100+1)/100f;
-                    rnd_X = 5.0;
-                    rnd_Y = 5.0;
-                    double test = Fct1GetY(rnd_X);
-                    if (rnd_Y <= test)
+                    rnd_Y = rnd.Next(0*100,Ymax*100+1)/100f;
+                    ////////////////////////////////////////////////////////
+                    if (rnd_Y <= Fct1GetY(rnd_X))
                     {
                         NB_PointSousCourbe++;
                     }
@@ -69,33 +72,71 @@ namespace Calculatrice
             }
             else if (CB_Cas.SelectedIndex == 1)//si Fonction 2
             {
+                Ymax = 5;
                 for (int i = 0; i < 10000; i++)
                 {
-
+                    //Randomisation du nombre avec 2 chiffre apres la virgule
+                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value) * 100,
+                        Convert.ToInt32(NUD_b.Value) * 100 + 1)) / 100f;
+                    rnd_Y = rnd.Next(0 * 100, Ymax * 100 + 1) / 100f;
+                    ////////////////////////////////////////////////////////
+                    if (rnd_Y <= Fct2GetY(rnd_X))
+                    {
+                        NB_PointSousCourbe++;
+                    }
                 }
             }
             else if (CB_Cas.SelectedIndex == 2)//si Fonction 3
             {
+                Ymax = 12;
                 for (int i = 0; i < 10000; i++)
                 {
-
+                    //Randomisation du nombre avec 2 chiffre apres la virgule
+                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value) * 100,
+                        Convert.ToInt32(NUD_b.Value) * 100 + 1)) / 100f;
+                    rnd_Y = rnd.Next(0 * 100, Ymax * 100 + 1) / 100f;
+                    ////////////////////////////////////////////////////////
+                    if (rnd_Y <= Fct3GetY(rnd_X))
+                    {
+                        NB_PointSousCourbe++;
+                    }
                 }
             }
             else if (CB_Cas.SelectedIndex == 3)//si Fonction 4
             {
+                Ymax = 10;
                 for (int i = 0; i < 10000; i++)
                 {
-
+                    //Randomisation du nombre avec 2 chiffre apres la virgule
+                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value) * 100,
+                        Convert.ToInt32(NUD_b.Value) * 100 + 1)) / 100f;
+                    rnd_Y = rnd.Next(0 * 100, Ymax * 100 + 1) / 100f;
+                    ////////////////////////////////////////////////////////
+                    if (rnd_Y <= Fct4GetY(rnd_X))
+                    {
+                        NB_PointSousCourbe++;
+                    }
                 }
             }
             else if (CB_Cas.SelectedIndex == 4)//si Fonction 5
             {
+                Ymax = 4;
                 for (int i = 0; i < 10000; i++)
                 {
-
+                    //Randomisation du nombre avec 2 chiffre apres la virgule
+                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value) * 100,
+                        Convert.ToInt32(NUD_b.Value) * 100 + 1)) / 100f;
+                    rnd_Y = rnd.Next(0 * 100, Ymax * 100 + 1) / 100f;
+                    ////////////////////////////////////////////////////////
+                    if (rnd_Y <= Fct5GetY(rnd_X))
+                    {
+                        NB_PointSousCourbe++;
+                    }
                 }
             }
-            return "";//a faire
+            int B = Ymax * Convert.ToInt32(NUD_b.Value - NUD_a.Value);
+            double A = B * NB_PointSousCourbe / 10000f;
+            return Math.Round(A,4).ToString();//a faire
         }
 
         private void NUD_a_b_ValueChanged(object sender, EventArgs e)
@@ -108,7 +149,7 @@ namespace Calculatrice
         /////////////
         private double Fct1GetY(double x)
         {
-            return (0-CubicRoot(Math.Pow(x,2f)- (16f*x)+63f))+4f;
+            return 4f-(CubicRoot((x-9)*(x-7)));
         }
 
         private double Fct2GetY(double x)
@@ -135,7 +176,14 @@ namespace Calculatrice
         ////////
         private double CubicRoot(double x)
         {
-            return Math.Pow(x, (1.0 / 3.0));
+            if (x < 0)
+            {
+                return 0-(Math.Pow((-1*x), 1f / 3f));
+            }
+            else
+            {
+                return Math.Pow(x, 1f / 3f);
+            }            
         }
     }
 }
