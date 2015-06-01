@@ -60,9 +60,10 @@ namespace Calculatrice
                 for (int i=0; i<10000;i++)
                 {
                     //Randomisation du nombre avec 2 chiffre apres la virgule
-                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value*100),
-                        Convert.ToInt32(NUD_b.Value*100)+1))/100f;
-                    rnd_Y = rnd.Next(0*100,Ymax*100+1)/100f;
+                    double a = (double)NUD_a.Value * 100f;
+                    double b = ((double)NUD_b.Value * 100f) + 1f;
+                    rnd_X = rnd.Next(Convert.ToInt32(a), Convert.ToInt32(b)) / 100f;
+                    rnd_Y = rnd.Next(0, (Ymax * 100) + 1) / 100f;
                     ////////////////////////////////////////////////////////
                     if (rnd_Y <= Fct1GetY(rnd_X))
                     {
@@ -76,9 +77,10 @@ namespace Calculatrice
                 for (int i = 0; i < 10000; i++)
                 {
                     //Randomisation du nombre avec 2 chiffre apres la virgule
-                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value * 100),
-                        Convert.ToInt32(NUD_b.Value * 100) + 1)) / 100f;
-                    rnd_Y = rnd.Next(0 * 100, Ymax * 100 + 1) / 100f;
+                    double a = (double)NUD_a.Value * 100f;
+                    double b = ((double)NUD_b.Value * 100f) + 1f;
+                    rnd_X = rnd.Next(Convert.ToInt32(a), Convert.ToInt32(b)) / 100f;
+                    rnd_Y = rnd.Next(0, (Ymax * 100) + 1) / 100f;
                     ////////////////////////////////////////////////////////
                     if (rnd_Y <= Fct2GetY(rnd_X))
                     {
@@ -92,9 +94,10 @@ namespace Calculatrice
                 for (int i = 0; i < 10000; i++)
                 {
                     //Randomisation du nombre avec 2 chiffre apres la virgule
-                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value * 100),
-                        Convert.ToInt32(NUD_b.Value * 100) + 1)) / 100f;
-                    rnd_Y = rnd.Next(0 * 100, Ymax * 100 + 1) / 100f;
+                    double a = (double)NUD_a.Value * 100f;
+                    double b = ((double)NUD_b.Value * 100f) + 1f;
+                    rnd_X = rnd.Next(Convert.ToInt32(a), Convert.ToInt32(b)) / 100f;
+                    rnd_Y = rnd.Next(0, (Ymax * 100) + 1) / 100f;
                     ////////////////////////////////////////////////////////
                     if (rnd_Y <= Fct3GetY(rnd_X))
                     {
@@ -108,9 +111,10 @@ namespace Calculatrice
                 for (int i = 0; i < 10000; i++)
                 {
                     //Randomisation du nombre avec 2 chiffre apres la virgule
-                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value * 100),
-                        Convert.ToInt32(NUD_b.Value * 100) + 1)) / 100f;
-                    rnd_Y = rnd.Next(0 * 100, Ymax * 100 + 1) / 100f;
+                    double a =(double)NUD_a.Value * 100f;
+                    double b =((double)NUD_b.Value * 100f) + 1f;
+                    rnd_X = rnd.Next(Convert.ToInt32(a),Convert.ToInt32(b)) / 100f;
+                    rnd_Y = rnd.Next(0, (Ymax * 100) + 1) / 100f;
                     ////////////////////////////////////////////////////////
                     if (rnd_Y <= Fct4GetY(rnd_X))
                     {
@@ -124,9 +128,10 @@ namespace Calculatrice
                 for (int i = 0; i < 10000; i++)
                 {
                     //Randomisation du nombre avec 2 chiffre apres la virgule
-                    rnd_X = (rnd.Next(Convert.ToInt32(NUD_a.Value * 100),
-                        Convert.ToInt32(NUD_b.Value * 100) + 1)) / 100f;
-                    rnd_Y = rnd.Next(0 * 100, Ymax * 100 + 1) / 100f;
+                    double a = (double)NUD_a.Value * 100f;
+                    double b = ((double)NUD_b.Value * 100f) + 1f;
+                    rnd_X = rnd.Next(Convert.ToInt32(a), Convert.ToInt32(b)) / 100f;
+                    rnd_Y = rnd.Next(0, (Ymax * 100) + 1) / 100f;
                     ////////////////////////////////////////////////////////
                     if (rnd_Y <= Fct5GetY(rnd_X))
                     {
